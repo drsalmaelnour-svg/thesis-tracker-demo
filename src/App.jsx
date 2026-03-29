@@ -1,3 +1,4 @@
+const DEMO_MODE = true;
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
@@ -54,6 +55,19 @@ export default function App() {
         <Route path="/student-checkin" element={<StudentCheckin />} />
         <Route path="/settings" element={<Layout><Settings /></Layout>} />
       </Routes>
+      {DEMO_MODE && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999,
+          backgroundColor: '#C9A84C', color: '#1B3A6B',
+          textAlign: 'center', padding: '8px',
+          fontWeight: 'bold', fontSize: '14px', fontFamily: 'Arial, sans-serif'
+        }}>
+          🔍 DEMO VERSION — All data is fictional | Thesis Coordination System © Dr Salma Elnour
+        </div>
+      )}
+      <footer style={{ textAlign: 'center', padding: '1rem', fontSize: '0.75rem', color: '#6b7280', marginTop: '2rem' }}>
+        © {new Date().getFullYear()} Dr Salma Elnour. All rights reserved. | Thesis Coordination System — Proprietary Software
+      </footer>
     </HashRouter>
   )
 }
